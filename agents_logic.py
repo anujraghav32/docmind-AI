@@ -4,7 +4,6 @@ from crewai import Agent, Task, Crew, Process
 
 load_dotenv()
 
-# ✅ Updated model — llama3-70b-8192 band ho gaya
 LLM_MODEL = "groq/llama-3.3-70b-versatile"
 
 writer = Agent(
