@@ -6,7 +6,6 @@ import io
 
 app = FastAPI()
 
-# CORS setup taaki frontend se connection ban sake
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,7 +24,6 @@ async def process_pdf(file: UploadFile = File(...)):
         pdf = PdfReader(io.BytesIO(content))
         text = "".join([page.extract_text() for page in pdf.pages])
 
-        # Agents ko kaam par lagao
         result = run_agentic_process(text[:10000])
         return {"result": str(result)}
     except Exception as e:
